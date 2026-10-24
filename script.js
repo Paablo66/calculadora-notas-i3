@@ -43,7 +43,11 @@ formulario.addEventListener("submit", function (evento) {
     const promedio = (notas[0] + notas[1] + notas[2]) / 3;
     const aprobado = promedio >= NOTA_APROBACION;
     document.getElementById("nombreResultado").textContent = nombre;
-    document.getElementById("promedio").textContent = promedio.toFixed(2);
+    document.getElementById("promedio").textContent =
+    new Intl.NumberFormat("es-CO", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    }).format(promedio);
 
     const estado = document.getElementById("estado");
     estado.textContent = aprobado ? "¡Aprobó!" : "No aprobó";
