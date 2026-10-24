@@ -126,7 +126,10 @@ input:focus {
     display: grid;
     gap: 10px;
 }
-
+button:focus-visible {
+    outline: 3px solid #91b7f3;
+    outline-offset: 3px;
+}
 button {
     width: 100%;
     padding: 13px 16px;
@@ -163,6 +166,7 @@ button {
     border-radius: 12px;
     background: #f7faff;
     text-align: center;
+    box-shadow: 0 4px 12px rgba(23, 74, 139, 0.08);
 }
 
 .titulo-resultado {
