@@ -5,75 +5,248 @@
 
 body {
     margin: 0;
-    padding: 30px 15px;
+    min-height: 100vh;
+    padding: 30px 16px;
     font-family: Arial, sans-serif;
-    background: #eaf1fb;
-    color: #243247;
+    background: #edf3fb;
+    color: #26364a;
+}
+
+.encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 10px auto 30px;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 14px;
+    background: #174a8b;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.encabezado h1 {
+    margin: 0 0 5px;
+    color: #174a8b;
+    font-size: 25px;
+}
+
+.encabezado p {
+    margin: 0;
+    color: #65758a;
+    font-size: 14px;
 }
 
 .contenedor {
-    max-width: 520px;
-    margin: 30px auto;
-    padding: 30px;
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 32px;
     background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.10);
+    border: 1px solid #dce5f0;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(23, 74, 139, 0.09);
 }
 
-h1, h2 {
+.introduccion {
+    margin-bottom: 28px;
     text-align: center;
+}
+
+.etiqueta {
+    display: inline-block;
+    padding: 7px 11px;
+    border-radius: 20px;
+    background: #e6efff;
     color: #174a8b;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
-p {
-    text-align: center;
-    line-height: 1.5;
+.introduccion h2 {
+    margin: 16px 0 10px;
+    color: #174a8b;
+    font-size: 27px;
+}
+
+.introduccion p {
+    margin: 0;
+    color: #65758a;
+    line-height: 1.6;
+}
+
+.campo {
+    margin-bottom: 18px;
 }
 
 label {
     display: block;
-    margin-top: 16px;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+    font-size: 14px;
     font-weight: bold;
 }
 
 input {
     width: 100%;
-    padding: 11px;
-    border: 1px solid #bdc9d8;
-    border-radius: 6px;
-    font-size: 16px;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #cbd6e4;
+    border-radius: 8px;
+    background: #fff;
+    color: #26364a;
+    font-size: 15px;
 }
 
 input:focus {
-    outline: 2px solid #7ca8e8;
+    outline: 2px solid #91b7f3;
+    border-color: #174a8b;
+}
+
+.notas {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.ayuda {
+    margin: 0 0 20px;
+    color: #65758a;
+    font-size: 13px;
+}
+
+.acciones {
+    display: grid;
+    gap: 10px;
 }
 
 button {
     width: 100%;
-    margin-top: 18px;
-    padding: 12px;
+    padding: 13px 16px;
     border: none;
-    border-radius: 6px;
-    background: #174a8b;
-    color: white;
-    font-size: 16px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
     cursor: pointer;
+    transition: background 0.2s;
 }
 
-button:hover {
+.boton-principal {
+    background: #174a8b;
+    color: white;
+}
+
+.boton-principal:hover {
     background: #103568;
 }
 
-button.secundario {
-    margin-top: 10px;
-    background: #687789;
+.boton-secundario {
+    background: #e8edf4;
+    color: #34445a;
 }
 
-#resultado {
-    margin-top: 20px;
+.boton-secundario:hover {
+    background: #d7e0ec;
+}
+
+.resultado {
+    margin-top: 26px;
+    padding: 22px;
+    border: 1px solid #dce5f0;
+    border-radius: 12px;
+    background: #f7faff;
     text-align: center;
+}
+
+.titulo-resultado {
+    margin: 0 0 8px;
+    color: #65758a;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nombre-resultado {
+    margin: 0 0 18px;
     font-size: 18px;
     font-weight: bold;
-    line-height: 1.6;
+}
+
+.promedio-contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: #65758a;
+    font-size: 14px;
+}
+
+.promedio-contenedor strong {
+    color: #174a8b;
+    font-size: 42px;
+}
+
+.estado {
+    display: inline-block;
+    margin: 18px 0 0;
+    padding: 9px 18px;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.aprobado {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.no-aprobado {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.mensaje {
+    margin: 20px 0 0;
+    padding: 13px;
+    border-radius: 8px;
+    background: #fff1f0;
+    color: #b42318;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+footer {
+    padding: 22px 10px 0;
+    color: #65758a;
+    font-size: 13px;
+    text-align: center;
+}
+
+@media (max-width: 520px) {
+    body {
+        padding: 18px 12px;
+    }
+
+    .contenedor {
+        padding: 22px 18px;
+    }
+
+    .notas {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .introduccion h2 {
+        font-size: 23px;
+    }
 }
