@@ -1,5 +1,8 @@
 
 const formulario = document.getElementById("formulario");
+const NOTA_MINIMA = 0;
+const NOTA_MAXIMA = 5;
+const NOTA_APROBACION = 3;
 const resultado = document.getElementById("resultado");
 const mensaje = document.getElementById("mensaje");
 
@@ -27,7 +30,9 @@ formulario.addEventListener("submit", function (evento) {
     ];
 
     const notasValidas = notas.every(function (nota) {
-        return Number.isFinite(nota) && nota >= 0 && nota <= 5;
+      return Number.isFinite(nota) &&
+       nota >= NOTA_MINIMA &&
+       nota <= NOTA_MAXIMA;
     });
 
     if (!notasValidas) {
@@ -36,10 +41,13 @@ formulario.addEventListener("submit", function (evento) {
     }
 
     const promedio = (notas[0] + notas[1] + notas[2]) / 3;
-    const aprobado = promedio >= 3;
-
+    const aprobado = promedio >= NOTA_APROBACION;
     document.getElementById("nombreResultado").textContent = nombre;
-    document.getElementById("promedio").textContent = promedio.toFixed(2);
+    document.getElementById("promedio").textContent =
+    new Intl.NumberFormat("es-CO", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    }).format(promedio);
 
     const estado = document.getElementById("estado");
     estado.textContent = aprobado ? "¡Aprobó!" : "No aprobó";
