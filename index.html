@@ -4,34 +4,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Notas - Instituto i3</title>
+    <meta name="description" content="Calculadora de notas del Instituto i3">
+    <title>Calculadora de Notas | Instituto i3</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header class="encabezado">
+        <div class="marca">i3</div>
+        <div>
+            <h1>Instituto i3</h1>
+            <p>Herramienta de cálculo académico</p>
+        </div>
+    </header>
+
     <main class="contenedor">
-        <h1>Instituto i3</h1>
-        <h2>Calculadora de Notas</h2>
-        <p>Ingresa los datos del estudiante y sus tres calificaciones.</p>
+        <section class="introduccion">
+            <span class="etiqueta">HERRAMIENTA ACADÉMICA</span>
+            <h2>Calculadora de notas</h2>
+            <p>Ingresa las tres calificaciones para conocer el promedio final del estudiante.</p>
+        </section>
 
-        <form id="formulario">
-            <label for="nombre">Nombre del estudiante:</label>
-            <input type="text" id="nombre" placeholder="Nombre completo">
+        <form id="formulario" novalidate>
+            <div class="campo">
+                <label for="nombre">Nombre del estudiante</label>
+                <input
+                    type="text"
+                    id="nombre"
+                    placeholder="Ej. Laura Rodríguez"
+                    autocomplete="name"
+                    maxlength="100"
+                    required
+                >
+            </div>
 
-            <label for="nota1">Primera nota (0 a 5):</label>
-            <input type="number" id="nota1" min="0" max="5" step="0.1">
+            <div class="notas">
+                <div class="campo">
+                    <label for="nota1">Nota 1</label>
+                    <input type="number" id="nota1" placeholder="0.0" min="0" max="5" step="0.1" required>
+                </div>
 
-            <label for="nota2">Segunda nota (0 a 5):</label>
-            <input type="number" id="nota2" min="0" max="5" step="0.1">
+                <div class="campo">
+                    <label for="nota2">Nota 2</label>
+                    <input type="number" id="nota2" placeholder="0.0" min="0" max="5" step="0.1" required>
+                </div>
 
-            <label for="nota3">Tercera nota (0 a 5):</label>
-            <input type="number" id="nota3" min="0" max="5" step="0.1">
+                <div class="campo">
+                    <label for="nota3">Nota 3</label>
+                    <input type="number" id="nota3" placeholder="0.0" min="0" max="5" step="0.1" required>
+                </div>
+            </div>
 
-            <button type="submit">Calcular promedio</button>
-            <button type="reset" class="secundario">Limpiar</button>
+            <p class="ayuda">Las calificaciones deben estar entre 0.0 y 5.0.</p>
+
+            <div class="acciones">
+                <button type="submit" class="boton-principal">Calcular promedio</button>
+                <button type="reset" class="boton-secundario">Limpiar formulario</button>
+            </div>
         </form>
 
-        <div id="resultado" aria-live="polite"></div>
+        <section id="resultado" class="resultado" aria-live="polite" hidden>
+            <p class="titulo-resultado">Resultado académico</p>
+            <p id="nombreResultado" class="nombre-resultado"></p>
+
+            <div class="promedio-contenedor">
+                <span>Promedio final</span>
+                <strong id="promedio">0.00</strong>
+                <span>de 5.00</span>
+            </div>
+
+            <p id="estado" class="estado"></p>
+        </section>
+
+        <p id="mensaje" class="mensaje" role="alert" hidden></p>
     </main>
+
+    <footer>
+        <p>Instituto i3 · Calculadora de Notas</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
