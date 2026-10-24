@@ -126,7 +126,10 @@ input:focus {
     display: grid;
     gap: 10px;
 }
-
+button:focus-visible {
+    outline: 3px solid #91b7f3;
+    outline-offset: 3px;
+}
 button {
     width: 100%;
     padding: 13px 16px;
